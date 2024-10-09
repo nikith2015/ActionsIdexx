@@ -16,6 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output Trigger
-        run: echo "The event that triggered this event was ${{}}"
+        run: echo "The event that triggered this event was ${{github.event_name}}"
+
+      - name: Output Repo
+        run: echo "The repository is ${{ github.repository }}"
+
+      - uses: actions/checkout@v4
+      - run: |
+          echo "Thes are the files in the repository: "
+          tree
+          
 
     
