@@ -1,0 +1,21 @@
+name: GitHub Actions Demo
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: [.github/**]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '15 6 * * SUN' 
+
+  workflow_dispatch:
+
+jobs:    
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Trigger
+        run: echo "The event that triggered this event was ${{}}"
+
+    
